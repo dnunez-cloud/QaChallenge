@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Script for duckduckGo API</h2>
+  <button onclick="getDogs()">Dogs</button>
+  <button onclick="getDogecoin()">Dogecoin</button>
+  <div id='answer'></div>
+  <script>
+    async function getData(searchElement) {
+      let response = await fetch("https://api.duckduckgo.com/?q="+searchElement+"&format=json");
+      let data = await response.json();
+      return data;
+    }
+	
+    function getDogs() {
+      getData('dogs').then(response=>{
+        document.getElementById('answer').innerHTML=JSON.stringify(response);
+      })
+    }
+    
+    function getDogecoin() {
+      getData('dogecoin').then(response=>{
+        document.getElementById('answer').innerHTML=JSON.stringify(response);
+      })
+    }
+  </script>
+</body>
+</html>
