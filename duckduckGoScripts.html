@@ -14,12 +14,12 @@
 	
     function getDogs() {
       getData('dogs').then(response=>{
-        document.getElementById('answer').innerHTML=JSON.stringify(response);
+        document.getElementById('answer').innerHTML=JSONPath(json, "$.RelatedTopics.Icon[*].URL").toJSONString();
       })
     }
     
     function getDogecoin() {
-      getData('dogecoin').then(response=>{
+      getData('dogs').then(response=>{
         document.getElementById('answer').innerHTML=JSON.stringify(response);
       })
     }
